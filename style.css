@@ -1,0 +1,315 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", serif;
+    font-style: normal;
+    
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #0c0e10;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.link-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+    flex-wrap: wrap;
+    background-color: #0c0e10;
+    margin: 0;
+    width: 300px;  /* Set width for .link-section */
+    flex-shrink: 0;/* Fix position to prevent it from flowing behind other content */
+    top: 0;  /* Position at the top of the screen */
+    left: 0;  /* Align to the left */
+}
+
+.logo-section,
+.quick-link-section,
+.about-us-section {
+    width: 100%;
+    max-width: 450px;
+    border-bottom: 2px solid #1c2025;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.logo-section img {
+    object-fit: cover;
+    width: 100%;
+    max-width: 250px;
+    padding-left: 0;
+}
+ol li a {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Inherits the text color from the parent */
+}
+h2, h4 {
+    margin-top: -10px;
+    text-align: center;
+}
+
+.sub-container {
+    background-color: #111315;
+    width: 100%;
+    flex: 1;
+    max-width: calc(100% - 300px);  /* Ensure sub-container takes up the remaining space */
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;  /* Add padding to sub-container */
+}
+
+.navbar {
+    background-color: #191d20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 100%;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #272a30;
+    width: 100%;
+    max-width: 550px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.search-container input {
+    width: 100%;
+    flex-grow: 1;
+    max-width: 250px;
+    padding: 5px;
+    border: none;
+    background: none;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.buttons button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #ff2424;
+    color: #fff;
+}
+
+.profile-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.images-section {
+    padding: 10px;
+    width: 100%;
+    max-width: 1030px;
+    overflow: hidden;
+    height: 100%;
+    max-height: 250px;
+}
+
+.images-section img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.menu-section {
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 20px;
+}
+.menu-section h2{
+    margin-bottom: 60px;
+    margin-left: 30px;
+    text-align: left;
+}
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 20px;
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card {
+    width: 100%; /* Allow it to take full width of grid column */
+    max-width: 240px; /* Set max width to prevent overflow */
+    min-width: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #191d20;
+    margin: auto; /* Centers the card in the grid column */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    border-bottom: #272a30;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.card p {
+    color: gray;
+    font-size: 14px;
+}
+
+.card .price {
+    font-weight: bold;
+    color: #27ae60;
+    margin-top: 5px;
+}
+.hamburger-menu {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+    background-color: #0c0e10;
+}
+.close-menu {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    background: transparent;
+    border: none;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+.link-section.show .close-menu {
+    display: block;
+}
+.close-menu:hover {
+    transform: scale(1.2);
+}
+@media screen and (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+    .link-section {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: fit-content;
+        background-color: #0c0e10;
+        padding: 20px;
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .link-section.show {
+        display: block; /* Ensure it appears */
+        transform: translateX(0);
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+    .close-menu {
+        display: none; /* Hide by default on small screens */
+    }
+
+    .link-section.show .close-menu {
+        display: block; /* Show when menu is open */
+    }
+    .buttons button {
+        padding: 10px 50px;
+        font-size: 14px;
+        font-size: 20px;
+    }
+    .sub-container{width: 100%;
+        max-width: calc(100% + 300px); 
+    }
+    .search-container{
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .card{width: 200px;}
+    .menu-container {
+        grid-template-columns: repeat(3, 1fr); /* Show 3 images per row */
+    }
+
+}
+/* Hide the menu initially on small screens */
+@media screen and (max-width: 768px) {
+    .search-container{
+        width: 100%;
+        max-width: 250px;   
+    }
+    .buttons >.p1{
+        display: none;
+    }
+    .card{width: 160px;}
+    .buttons button {
+        padding: 8px 30px;
+        font-size: 14px;
+        font-size: 20px;
+    }
+    .close-menu {
+        display: none; /* Hide by default on small screens */
+    }
+
+    .link-section.show .close-menu {
+        display: block; /* Show when menu is open */
+    }
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr); /* Show 2 images per row */
+    }
+}
+@media screen and (max-width: 480px) {
+    .search-container{
+        width: 100%;
+        max-width: 150px;
+    }
+    .card{width: 100px;}
+    .buttons button {
+        padding: 8px 15px;
+        font-size: 14px;
+        font-size: 20px;
+    }
+    .close-menu {
+        display: none; /* Hide by default on small screens */
+    }
+
+    .link-section.show .close-menu {
+        display: block; /* Show when menu is open */
+    }
+    .menu-container {
+        grid-template-columns: repeat(1, 1fr); /* Show 1 image per row */
+    }
+}
